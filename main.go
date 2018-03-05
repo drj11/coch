@@ -10,6 +10,9 @@ func main() {
 	var count [256]int
 	buf := make([]byte, 1)
 	in := bufio.NewReader(os.Stdin)
+
+	all := false
+
 	for {
 		n, _ := in.Read(buf)
 		if n == 0 {
@@ -19,6 +22,8 @@ func main() {
 	}
 
 	for i, c := range count {
-		fmt.Printf("%d %d\n", i, c)
+		if c > 0 || all {
+			fmt.Printf("%d %d\n", i, c)
+		}
 	}
 }
